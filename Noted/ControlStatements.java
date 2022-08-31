@@ -42,4 +42,16 @@ public class ControlStatements
             i++;
         }
     }
+    public static void loops(){
+        int i = 0;
+        while (i < 10){
+            System.out.println(i);
+            i++;
+        }
+        while (true){
+            System.out.println(i);
+            i++;
+            System.out.println("Dont run this");
+        }
+    }
 }
