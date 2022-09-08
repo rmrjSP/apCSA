@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Crown
+comment1.params=metalType\ crownShape\ numberOfJewels\ size\ color
+comment1.target=Crown(java.lang.String,\ java.lang.String,\ int,\ double,\ java.awt.Color)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Crown\r\n
+comment2.params=
+comment2.target=Crown()
+comment3.params=
+comment3.target=void\ crownTest()
+numComments=4
