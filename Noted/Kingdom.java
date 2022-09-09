@@ -15,5 +15,13 @@ public class Kingdom
         Crown crown2 = new Crown("iron", "square", 0, 1.1, null);
         crown2.owner = "you";
         
+        
+        System.out.println("My crown is made of" + crown.getMetal());
+        System.out.println("You got so much smarter! The crown is too small now") ;
+        crown.setSize(9001);
+        System.out.println("Your brain is massize! its now a size" + crown.getSize());
+        
+        
+        
     }
 }

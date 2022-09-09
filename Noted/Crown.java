@@ -8,8 +8,8 @@ public class Crown
     private double size;
     private Color color;
     private int durability = 100;
-    
-    //This is a horrible practice, but we are doing it for educatation.
+
+    //This is a horrible practice, but we are doing it for education.
     public String owner;
 
     /**
@@ -24,6 +24,7 @@ public class Crown
         this.size = size;
         this.color = color;
     }
+
     public Crown(){
         metal = "silver";
         shape = "round";
@@ -32,9 +33,42 @@ public class Crown
         color = new Color(192, 192, 192);
     }
 
-  
-    public void crownTest()
-   {
-        Kingdom.kingdomTester();
+    public Crown(Color color){
+        this("silver", "round", 5, 4.4, color);
+    }
+
+    // public void crownTest()
+    //{
+    //    Kingdom.kingdomTester();
+    //}
+
+    //Accessor Methods
+    public String getMetal(){
+        return metal;
+    }
+
+    public double getSize(){
+        return size;
+    }
+
+    //mutator method
+    public void setSize(double newSize){
+        size = newSize;
+    }
+
+    //Other Methods
+    public void breakCrown(){
+        durability = 0;
+        System.out.println("It broke");
+    }
+
+    public void wear(String owner){
+        if (durability <=0){
+            System.out.println("Its broken");
+        } else {
+            this.owner = owner;
+            durability--;
+            System.out.println(owner + " Wears the crown now!");
+        }
     }
 }
