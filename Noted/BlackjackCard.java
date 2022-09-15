@@ -96,14 +96,14 @@ public class BlackjackCard
             if(dealerTotal > 22){
                 System.out.println("dealer busted");
                 System.out.println("You won");
-            } else {
-                if(playerTotal > dealerTotal){
+            } 
+        }
+        if(playerTotal > dealerTotal && dealerTotal < 22){
                     System.out.println("Player Won");
                 } else{
                     System.out.println("Dealer Won");
+                    System.out.println("Dealer Total was " + dealerTotal);
                 }
-            }
-        }
     }
     public static void play(){
         playerHand();
