@@ -12,6 +12,7 @@ public class BlackjackCard
     static Scanner scanner = new Scanner(System.in);
     static int playerTotal;
     private int cardTotal;
+    static int dealerTotal;
     
     /**
      * Constructor for objects of class Blackjack
@@ -25,7 +26,12 @@ public class BlackjackCard
     public int getCardTotal(){
         return cardTotal;
     }
-
+    public static int getPlayerTotal(){
+        return playerTotal;
+    }
+    public static int getDealerTotal(){
+        return dealerTotal;
+    }
     public static int playerHand(){
 
         BlackjackCard card = new BlackjackCard();
@@ -36,9 +42,10 @@ public class BlackjackCard
         System.out.println("You got a " + secondCard);
         int playerInitialTotal = firstCard + secondCard;    
         System.out.println("Your total is " + playerInitialTotal); 
+        playerTotal += playerInitialTotal;
         
         return playerInitialTotal;
-        playerInitialTotal = playerTotal;
+        
     }
 
     public static int dealerHand(){
@@ -49,14 +56,15 @@ public class BlackjackCard
         BlackjackCard card2 = new BlackjackCard();
         int secondCard = card2.getCardTotal();
         System.out.println("Dealers second card is hidden");
-        int dealerInitialTotal = firstCard + secondCard;    
+        int dealerInitialTotal = firstCard + secondCard;
+        dealerTotal += dealerInitialTotal;
         return dealerInitialTotal;
     }
 
     public static void playerTurn(){
-        int playerHand = playerTotal;
+        
         int answer = 0;
-        while(playerHand < 22 && answer != 2){
+        while(playerTotal < 22 && answer != 2){
             System.out.println("Would you like to hit");
             System.out.println("Type 1 for yes, 2 for No");
             answer = scanner.nextInt();
@@ -64,10 +72,45 @@ public class BlackjackCard
                 BlackjackCard card = new BlackjackCard();
                 int newCard = card.getCardTotal();
                 System.out.println("You got a " + newCard);
-                
+                playerTotal += newCard;
+                System.out.println("Your total is "  + playerTotal);
+            } else{
+                System.out.println("Its the dealer turn now");
+                dealerTurn();
+            }
+            if(playerTotal > 22){
+                System.out.println("You busted");
+                System.out.println("You Lost");
             }
         }
     }
+    
+    public static void dealerTurn(){
+        
+        while(dealerTotal < 17){
+            BlackjackCard card = new BlackjackCard();
+            int newCard = card.getCardTotal();
+            
+            System.out.println("Dealer got a " + newCard);
+            dealerTotal += newCard;
+            if(dealerTotal > 22){
+                System.out.println("dealer busted");
+                System.out.println("You won");
+            } else {
+                if(playerTotal > dealerTotal){
+                    System.out.println("Player Won");
+                } else{
+                    System.out.println("Dealer Won");
+                }
+            }
+        }
+    }
+    public static void play(){
+        playerHand();
+        dealerHand();
+        playerTurn();
+    }
+    
 
 
 }
