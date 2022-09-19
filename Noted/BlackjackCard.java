@@ -13,7 +13,7 @@ public class BlackjackCard
     static int playerTotal;
     private int cardTotal;
     static int dealerTotal;
-    
+    static int betTotal;
     /**
      * Constructor for objects of class Blackjack
      */
@@ -21,6 +21,13 @@ public class BlackjackCard
     {
         int total = ((int)(Math.random() * 8) + 2);
         cardTotal = total;
+    }
+    public static void getBet(){
+    System.out.println("How much do you want to bet? You can choose to not gamble like a responsible person.");
+    int bet = 0;
+    bet = scanner.nextInt();
+    betTotal += bet;
+    
     }
 
     public int getCardTotal(){
@@ -100,12 +107,18 @@ public class BlackjackCard
         }
         if(playerTotal > dealerTotal && dealerTotal < 22){
                     System.out.println("Player Won");
+                    int won = betTotal * 2;
+                    System.out.println("You won " + betTotal);
                 } else{
                     System.out.println("Dealer Won");
                     System.out.println("Dealer Total was " + dealerTotal);
+                    int lost = betTotal;
+                    System.out.println("You lost " + lost + " Bozo");
+                    System.out.println("Have you ever thought of your family?, you're out here losing money as they can't even eat dinner everyday. A person like you is a waste of oxygen.");
                 }
     }
     public static void play(){
+        getBet();
         playerHand();
         dealerHand();
         playerTurn();
