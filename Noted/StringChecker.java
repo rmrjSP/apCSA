@@ -6,7 +6,7 @@
  * @version (a version number or a date)
  */
 public interface StringChecker
-
+ 
 {
-   boolean isValid(String str);
+   public boolean isValid(String str);
 }
