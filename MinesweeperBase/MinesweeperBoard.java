@@ -15,15 +15,16 @@ public class MinesweeperBoard{
     int rows;
     int columns;
     
-    public MinesweeperBoard(int row, int col){
+    public MinesweeperBoard(int row, int col ){
         //Put the constructor here.
         board = new Cell[row * col];
         rows = row;
         columns = col;
+        
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
         frame.add(addCells());
-        
+        addMines(20);
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -32,12 +33,14 @@ public class MinesweeperBoard{
 	this(10,10);
     }
 
-    public void addMines(int mines) throws Exception{
-        int total = rows * columns;
-        for(int i = 0; i < mines; i ++){
-          board[(int)Math.random() * total]= 10;
-          value = 10;
+    public void addMines(int mines) {
+        
+        
+        for(int i = 0; i < mines; i++){
+          int mineCell = (int)(Math.random() * (rows*columns) +1);
+          board[mineCell].setMine();
         }
+        
 
     }
 
@@ -48,8 +51,10 @@ public class MinesweeperBoard{
      *  It is still required for all students.
      */
     public void printBoard(){
-        
-    }
+        for(int i = 0; i < rows; i++){
+           System.out.print(board[i].value );
+        }
+}
     public JPanel addCells(){
         JPanel panel = new JPanel(new GridLayout(rows,columns));
         for(int i = 0; i< rows*columns; i++){

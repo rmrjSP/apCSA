@@ -31,15 +31,14 @@ public class Cell implements ActionListener{
      * @return True if it is a mine, otherwse false.
      */
     boolean isMine(){
-        if(value == 10){
-         return true;
-        } 
-        return false;
+        return (value == 10);
     }
     
     
     //Additional Methods may be required. Please make them yourself.
-    
+    public int setMine(){
+        return value = 10;
+    }
     //The following methods are used for the User Inferface. These methods are fully functional and do not need to be modified.
     public void checkCell(){
         button.setEnabled(false);
