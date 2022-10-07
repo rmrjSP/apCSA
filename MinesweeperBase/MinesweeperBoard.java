@@ -24,7 +24,8 @@ public class MinesweeperBoard{
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
         frame.add(addCells());
-        addMines(1);
+        addMines(20);
+        addNums();
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -37,22 +38,33 @@ public class MinesweeperBoard{
     public void addMines(int mines) {
 
         for(int i = 0; i < mines; i++){
-            int mineCell = (int)(Math.random() * (rows*columns) +1);
+            int mineCell = (int)(Math.random() * (rows*columns));
             board[mineCell].setMine();
         }
 
     }
 
-    public int getIndex(){
-        int x = 0;
-        for( int i = 0; i < (rows*columns) ; i++){
-            if(board[i] == 
-        }
-        return x;
-    }
-
     public void addNums(){
-        
+        for(int i =0 ; i < (rows*columns); i++){
+            int count = 0;
+            if(!board[i].isMine()){
+                
+                if(i+1 < rows*columns && i%columns != 0 && board[i + 1].isMine()){
+                    count++;
+                }
+                if(i - 1 >=0 && i%columns != 0 && board[i - 1].isMine()){
+                    count++;
+                }
+                if(i + rows < (rows*columns) && i%rows != 0 && board[i + rows].isMine()){
+                count++;
+                }
+                if(i -rows >= 0 && i%rows != 0 && board[i - rows].isMine()){
+                count++;
+                }
+                board[i].changeValue(count);
+            }
+
+        }
     }
 
     /**This method is used for testing and will be deleted if using the GUI.

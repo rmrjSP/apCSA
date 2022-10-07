@@ -42,6 +42,9 @@ public class Cell implements ActionListener{
     public int getValue(){
       return value;
     }
+    public void changeValue(int count){
+       value += count;
+    }
     
     //The following methods are used for the User Inferface. These methods are fully functional and do not need to be modified.
     public void checkCell(){
