@@ -36,14 +36,21 @@ public class MinesweeperBoard{
     }
 
     public void addMines(int mines) {
-
+        int numMines = 0;
+        while( numMines < mines){
         for(int i = 0; i < mines; i++){
             int mineCell = (int)(Math.random() * (rows*columns));
             board[mineCell].setMine();
+            numMines++;
         }
-
     }
-
+    }
+    // public void openBoard(){
+    // int i = ;
+    // board[i].getButton();
+    
+    
+    // }
     public void addNums(){
         for(int i =0 ; i < (rows*columns); i++){
             int count = 0;
@@ -102,7 +109,7 @@ public class MinesweeperBoard{
     public JPanel addCells(){
         JPanel panel = new JPanel(new GridLayout(rows,columns));
         for(int i = 0; i< rows*columns; i++){
-            board[i]= new Cell();
+            board[i]= new Cell(this);
             panel.add(board[i].getButton());
 
         }

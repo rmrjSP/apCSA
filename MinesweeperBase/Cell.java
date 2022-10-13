@@ -13,18 +13,20 @@ import java.awt.event.ActionListener;
 public class Cell implements ActionListener{
     //Variables you need to work with
     private int value;
+    private MinesweeperBoard board;
     
     //Variables you don't need to worry about or care about.
     private JButton button;
     /**
      * This constructor is complete and does not need modification
      */
-    public Cell(){
+    public Cell(MinesweeperBoard b){
         button = new JButton();
         button.addActionListener(this);
         button.setPreferredSize(new Dimension(20,20));
         button.setMargin(new Insets(0,0,0,0));
         value = 0;
+        board = b;
     }
     /** This Method tells me if the cell is a mine.
      * 
@@ -57,7 +59,7 @@ public class Cell implements ActionListener{
             button.setBackground(Color.RED);
         }else if(value!=0){
             button.setText(String.valueOf(value));
-        }
+        } 
     }
     public JButton getButton() {
         return button;
