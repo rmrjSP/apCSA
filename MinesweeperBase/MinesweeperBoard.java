@@ -49,28 +49,28 @@ public class MinesweeperBoard{
             int count = 0;
             if(!board[i].isMine()){
                 
-                if(i+1 < rows*columns && i%columns-1 != 0 && i%rows != 0 && board[i + 1].isMine()){
+                if(i+1 < rows*columns && i%columns != columns - 1 && board[i + 1].isMine()){
                     count++; //Right
                 }
                 if(i - 1 >=0 && i%columns != 0 && board[i - 1].isMine()){
                     count++; //Left
                 }
-                if(i + rows < (rows*columns) && i%rows != 0 && board[i + rows].isMine()){
+                if(i + rows < (rows*columns)  && board[i + rows].isMine()){
                 count++;//Down
                 }
-                if(i -rows >= 0 && i%rows != 0 && board[i - rows].isMine()){
+                if(i -rows >= 0 && board[i - rows].isMine()){
                 count++;//Up
                 }
-                 if(i + rows -1 < (rows*columns) && i%rows != 0 && board[i + rows -1].isMine()){
+                 if(i + rows  < (rows*columns) && i%columns  != 0 && board[i + rows -1].isMine()){
                 count++;//DownLeft
                 }
-                 if(i + rows +1 < (rows*columns) && i%rows != 0 && i%columns-1  != 0 && board[i + rows +1].isMine()){
+                 if(i + rows  < (rows*columns) && i%columns  != columns - 1 && board[i + rows +1].isMine()){
                 count++;//DownRight
                 }
-                if(i -rows +1 >= 0 && i%rows != 0 && i%columns  != 0 && board[i - rows +1].isMine()){
+                if(i -rows  >= 0  && i%columns  != columns - 1 && board[i - rows +1].isMine()){
                 count++;//UpLeft
                 }
-                if(i -rows -1 >= 0 && i%rows != 0 && i%columns-1  != 0 && board[i - rows-1].isMine()){
+                if(i -rows  >= 0  && i%columns  != 0 && board[i - rows-1].isMine()){
                 count++;//UpRight
                 }
                 board[i].changeValue(count);
