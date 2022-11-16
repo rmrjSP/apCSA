@@ -63,6 +63,19 @@ public class Cell implements ActionListener{
         if(value == 1){
          button.setBackground(Color.BLUE);
         }
+         if(value == 2){
+         button.setBackground(Color.YELLOW);
+        }
+         if(value == 3){
+         button.setBackground(Color.GREEN);
+        }
+         if(value == 4){
+         button.setBackground(Color.PINK);
+        }
+         if(value == 5){
+         button.setBackground(Color.ORANGE);
+        }
+       
     }
     public JButton getButton() {
         return button;
