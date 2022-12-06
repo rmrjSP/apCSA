@@ -1,3 +1,5 @@
+package pixLab.pixLab.classes;
+
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,3 +1,5 @@
+package pixLab.pixLab.classes;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -16,6 +18,7 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+  
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
@@ -63,10 +66,10 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
+    //testgrayscale();
+    //testfixUnderWater();
+    testMirrorVertical();
+    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
