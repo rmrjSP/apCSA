@@ -61,7 +61,16 @@ public class ArrayPractice
             System.out.print(nums + " ");
         }
     }
-    
+    public int isNumPresent(int num){
+
+        int count = 0;
+        for(int i = 0; i < testArr.length; i ++){
+            if(testArr[i] == num){
+                count ++;
+            }
+        }
+        return count;
+    }
     public void removeAll2(int num){
         int[] testArr = {1, 1, 2, 2, 1, 1, 1, 1, 1, 2, 3};
         for(int nums :  testArr){
@@ -83,14 +92,5 @@ public class ArrayPractice
         }
     }
 
-    public int isNumPresent(int num){
-
-        int count = 0;
-        for(int i = 0; i < testArr.length; i ++){
-            if(testArr[i] == num){
-                count ++;
-            }
-        }
-        return count;
-    }
+    
 }
