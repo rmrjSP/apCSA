@@ -2,5 +2,9 @@
 comment0.target=TesterSideProject
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ TesterSideProject\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=void\ tester()
-numComments=2
+comment1.target=void\ allmightyCreator()
+comment2.params=
+comment2.target=int\ getPerson()
+comment3.params=
+comment3.target=void\ play()
+numComments=4
