@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=NagniBarsha
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ NagniBarsha\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=name\ weigth\ length\ sharp
+comment1.target=NagniBarsha(java.lang.String,\ double,\ double,\ boolean)
+comment2.params=
+comment2.target=int\ backSideCombo()
+comment3.params=
+comment3.target=boolean\ getSharp()
+comment4.params=attackType
+comment4.target=int\ attack(java.lang.String)
+comment5.params=
+comment5.target=boolean\ parry()
+numComments=6
