@@ -1,23 +1,23 @@
 
 /**
- * Write a description of class RangedPlayer here.
+ * Write a description of class Attacking here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class RangedPlayer extends Players
+public class AttackingPlayer extends Players
 {
-     int defense;
+    int defense;
    int attack;
    int ranged;
-   public RangedPlayer(String name, int age, int defense, int attack, int ranged){
+   public AttackingPlayer(String name, int age, int defense, int attack, int ranged){
     super(name, age);
     this.defense = defense;
     this.attack = attack;
     this.ranged = ranged;
     }
-    public void RangedBoost(){
-    ranged += 10;
+    public void AttackBoost(){
+    attack += 10;
     }
     public String getName(){
        return name;
