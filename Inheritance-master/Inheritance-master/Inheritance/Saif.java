@@ -35,14 +35,8 @@ public class Saif extends Melee implements WeaponInterface
     }
 
     public boolean parry(){
-        int total = ((int)(Math.random()));
-        boolean parry;
-        if(total == 1){
-            parry = true;
-        } else{
-            parry = false;
-        }
-        return parry;
+       int total = ((int)(Math.random() + 0.5));
+        return total == 1;
     }
 }
 
