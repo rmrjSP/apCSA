@@ -17,15 +17,22 @@ public class runner
     public void run(){
         getStats();
         getEnemyStats();
-        fight();
+        whatToDo();
     }
-
+    public void customizePlayer(){
+    System.out.println("Do you want to customize your charcter");
+    System.out.println("1 for yes, 2 for no");
+    int ans = scanner.nextInt();
+    if(ans == 1){
+      
+    }
+    }
     public void getStats(){
         X.DefenseBoost();
         int d = X.getDefense();
         int a = X.getAttack();
         int r = X.getRanged();
-        System.out.println("Enemy stats are " + d + " " + a + " " + r);
+        System.out.println("The stats are " + d + " " + a + " " + r);
         XBackpack.storeItem(XDoubleKirpan);
 
     }
@@ -35,52 +42,95 @@ public class runner
         int d = E.getDefense();
         int a = E.getAttack();
         int r = E.getRanged();
-        System.out.println("The stats are " + d + " " + a + " " + r);
+        System.out.println("Enemy stats are " + d + " " + a + " " + r);
         EBackpack.storeItem(EKhanda);
 
     }
-
+    public void whatToDo(){
+    
+    
+    System.out.println("What do you want to do");
+    System.out.println("1 for figth; 2 for train");
+    int ans =  scanner.nextInt();
+    if(ans == 1){
+    fight();
+    } else if(ans == 2){
+    train();
+    }
+    }
     public void fight(){
         int XHealth = 100;
         int EHealth = 100;
+        int Edamage = 0;
+        int Xdamage = 0;
         while(XHealth > 0){
-            int damage = 0;
+            
 
             System.out.println("Your health is "+ XHealth);
             System.out.println("Enemy health is "+ EHealth);
             System.out.println("What attack to use; 1, 2, or 3");
             int ans = scanner.nextInt();
             boolean EDefend = EKhanda.parry();
+            if(EHealth <= 0){
+            System.out.println("You won");
+            break;
+            
+            }
             if(!EDefend){
+                
                 if(ans==1){
-                    damage = XDoubleKirpan.attack("slash");  
-
+                    Xdamage = XDoubleKirpan.attack("slash");  
+                    
                 }else if(ans == 2){
-                    damage = XDoubleKirpan.attack("stab"); 
+                    Xdamage = XDoubleKirpan.attack("stab"); 
                 }else if(ans == 3){
-                    damage = XDoubleKirpan.LRLCombo(); 
+                    Xdamage = XDoubleKirpan.LRLCombo(); 
                 }
-                System.out.println("you did " + damage + " damage");
+                if(X.getAttack()> 100){Xdamage += 5; }
+                if(E.getDefense()> 100){Xdamage -= 5; }
+                System.out.println("you did " + Xdamage + " damage");
+                EHealth -= Xdamage;
+                
+                
             } else{
                 System.out.println("The enemy blocked it");
             }
-            int EAttack = ((int)(Math.random() + 3.5));
+            int EAttack = ((int)(Math.random() + 2.5));
             boolean XDefend = XDoubleKirpan.parry();
             if(!XDefend){
+                
                 if(EAttack==1){
-                    damage = EKhanda.attack("slash");  
+                    Edamage = EKhanda.attack("slash");  
 
                 }else if(EAttack == 2){
-                    damage = EKhanda.attack("stab"); 
+                    Edamage = EKhanda.attack("stab"); 
                 }else if(EAttack == 3){
-                    damage = EKhanda.hoolSlashCombo(); 
+                    Edamage = EKhanda.hoolSlashCombo(); 
                 }
-                System.out.println("Enemy did " + damage + " damage");
+                if(E.getAttack()> 100){Edamage += 5; }
+                if(X.getDefense()> 100){Edamage -= 5; }
+                System.out.println("Enemy did " + Edamage + " damage");
+                XHealth -= Edamage;
             } else{
                 System.out.println("You blocked the enemies attack");
             }
-            if
+            
         }
         System.out.println("You lost");
+        whatToDo();
+    }
+    public void train(){
+    System.out.println("What do you want to train ");
+    System.out.println("1 for attack, 2 for defence, 3 for ranged");
+    int ans = scanner.nextInt();
+    if (ans == 1){
+    X.setAttack(10);
+    } else if(ans == 2 ){
+    X.setDefense(10);
+    } else if(ans == 3){
+    X.setRanged(10);
+    }
+    getStats();
+    whatToDo();
     }
 }

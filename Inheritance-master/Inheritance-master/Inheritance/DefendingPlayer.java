@@ -34,6 +34,15 @@ public class DefendingPlayer extends Players
     public int getRanged(){
     return ranged;
     }
+        public void setDefense(int inc){
+    defense += inc;
+    }
+    public void setAttack(int inc){
+    attack += inc;
+    }
+    public void setRanged(int inc){
+    ranged += inc;
+    }
 }
 
 
