@@ -26,4 +26,8 @@ public class Bow extends Ranged implements RangedWeaponInterface
       return damage;
       
     }
+    public boolean parry(){
+       int total = ((int)(Math.random() + 0.5));
+        return total == 1;
+    }
 }
