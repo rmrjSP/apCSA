@@ -25,7 +25,7 @@ public class runnerAttacking
     Scanner scanner = new Scanner(System.in);
     public void run(){
         start();
-        System.out.println("You are " + name + " , you are " + age + "'s old");
+        System.out.println("You are " + name + " , you are " + age + " years's old");
         getStats();
         getEnemyStats();
         whatToDo();

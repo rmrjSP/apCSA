@@ -10,14 +10,32 @@ public class runnerDefensive
     Scanner scanner = new Scanner(System.in);
     String name;
     int age;
+    String weaponType;
+    String weaponName;
+    int weaponWeight;
+    int weaponLength;
     
     public void start(){
     System.out.println("What is your name");
     name = scanner.next();
     System.out.println("How old are you");
     age = scanner.nextInt();
-    }
+    System.out.println("What weapon do you want");
+    weaponType = scanner.next();
     
+    System.out.println("What is the name of the weapon");
+    weaponName = scanner.next();
+    System.out.println("How much does the weapon weight");
+    weaponWeight = scanner.nextInt();
+    System.out.println("How long is the weapon");
+    weaponLength = scanner.nextInt();
+     if(weaponType.equals("Double Kirpan")){
+    DoubleKirpan XWeapon= new DoubleKirpan(weaponName, weaponWeight, weaponLength, true);
+    } else if(weaponType.equals("Barsha")){
+    Barsha XWeapon = new Barsha(weaponName, weaponWeight, weaponLength, true);
+    }
+    }
+   
     
     DefendingPlayer X = new DefendingPlayer(name, age, 56, 43, 43);
     Backpack XBackpack = new Backpack();
