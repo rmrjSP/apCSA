@@ -55,12 +55,14 @@ public class runnerRanged
     public void whatToDo(){
 
         System.out.println("What do you want to do");
-        System.out.println("1 for figth; 2 for train");
+        System.out.println("1 for figth; 2 for train; 3 for explore");
         int ans =  scanner.nextInt();
         if(ans == 1){
             fight();
         } else if(ans == 2){
             train();
+        } else if(ans == 3){
+        explore();
         }
     }
 
@@ -137,4 +139,30 @@ public class runnerRanged
         getStats();
         whatToDo();
     }
+    public void explore(){
+        int total = ((int)(Math.random()*3 + 0.5));
+        if(total ==0){
+            System.out.println("You find a enemy while walking around");
+            System.out.println("1 to fight, 2 to flee");
+            int ans = scanner.nextInt();
+            if(ans == 1){
+                fight();
+                whatToDo();
+            } else if (ans == 2){
+                System.out.println("You ran away");
+                whatToDo();
+            }
+        }else if(total == 1){
+          System.out.println("Theres intense music playing, you are transported to a gym, its time to train");
+          train();
+          whatToDo();
+        }else if(total == 2){
+        System.out.println("You stand alone in a desolate wasteland, theres nothing for you to do, nothing left to live for");
+        whatToDo();
+        }else if(total == 3){
+        System.out.println("You stumble apon some Jauhr E Tegh runs");
+        whatToDo();
+        }
+        
+}
 }
