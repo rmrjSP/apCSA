@@ -178,11 +178,9 @@ public class runnerAttacking
         
     }
     public void Jet(){
-    int points = 0;
+        //Trying to make a sports game based on a martial art I praticipate in
+    JauhrETegh JauhrETegh = new JauhrETegh();
+    JauhrETegh.Jet();
     
-    for(int i =0; i < 10; i++ ){
-    System.out.println("Do you wish to attack");
-    System.out.pritnln()
-    }
     }
 }
